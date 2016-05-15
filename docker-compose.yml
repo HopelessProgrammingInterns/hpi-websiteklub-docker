@@ -1,0 +1,123 @@
+version: '2'
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  db-data:
+  etherpad-data:
+
+services:
+
+  frame:
+    build: ./frame
+    env_file: ./docker-common.env
+    environment:
+      # all of those will appear in the toplevel navigation in the order of
+      # their number suffix. pattern is label|URL
+      - LINK0=Home|/
+      - LINK1=180|/180/
+      - LINK2=120|/120/
+      - LINK3=Etherpad|/etherpad/
+      - LINK4=Redmine|https://student.hpi.uni-potsdam.de/redmine/
+      - LINK5=Zitate|/quotedb/
+      - LINK6=Geocaching|/geocaching
+      - LINK7=FSR|https://myhpi.de/fsr/
+
+      # similar to the links, except those go into the 
+      # clubs dropdown. same pattern.
+      - CLUB0=Zeitungs-Klub|/klub/zeitung
+      - CLUB1=Kochklub|/klub/kochen
+      - CLUB2=A capella|/klub/acapella
+      - CLUB3=Filmklub|/klub/film
+      - CLUB4=Connect-Klub|http://hpi.de/connect/start.html
+    volumes:
+      - ./frame:/var/www/html
+    ports:
+      - 8000:80
+
+# https://hub.docker.com/_/mysql/
+  maindb:
+    image: mysql
+    networks:
+      - backend
+    env_file: ./docker-common.env
+    volumes:
+      - "db-data:/var/lib/mysql"
+
+# https://hub.docker.com/_/wordpress/
+  wordpress_filmklub:
+    build: ./wordpress
+    links:
+      - maindb:mysql
+    networks:
+      - frontend
+      - backend
+    ports:
+      - 8001:80
+    env_file: ./docker-common.env
+    environment:
+      - WORDPRESS_PATH=/klub/film
+      - WORDPRESS_DB_NAME=wordpress_filmklub
+
+# https://hub.docker.com/_/wordpress/
+  wordpress_zeitungsklub:
+    build: ./wordpress
+    links:
+      - maindb:mysql
+    networks:
+      - frontend
+      - backend
+    ports:
+      - 8002:80
+    env_file: ./docker-common.env
+    environment:
+      - WORDPRESS_PATH=/klub/zeitung
+      - WORDPRESS_DB_NAME=wordpress_zeitungsklub
+
+# https://hub.docker.com/_/wordpress/
+  wordpress_acapella:
+    build: ./wordpress
+    links:
+      - maindb:mysql
+    networks:
+      - frontend
+      - backend
+    ports:
+      - 8003:80
+    env_file: ./docker-common.env
+    environment:
+      - WORDPRESS_PATH=/klub/acapella
+      - WORDPRESS_DB_NAME=wordpress_acapella
+
+# https://hub.docker.com/r/tvelocity/etherpad-lite/
+  etherpad:
+    image: tvelocity/etherpad-lite
+    networks:
+      - frontend
+      - backend
+    env_file: ./docker-common.env
+    environment:
+      - ETHERPAD_ADMIN_PASSWORD=lkskw929djdnd
+      - ETHERPAD_ADMIN_USER=admin
+      - ETHERPAD_PORT=8000
+      - ETHERPAD_DB_NAME=etherpad
+      - MYSQL_PORT_3306_TCP_ADDR=maindb
+    ports:
+      - 8004:8000
+    volumes:
+      - "etherpad-data:/opt/etherpad-lite/var"
+    links:
+      - maindb:mysql
+
+#  quote_db:
+#    build: ./quotedb
+#    command: python manage.py runserver 0.0.0.0:8004
+#    volumes:
+#      - .:/code
+#    ports:
+#      - "8004:8004"
+#    links:
+#      - maindb:mysql
+
