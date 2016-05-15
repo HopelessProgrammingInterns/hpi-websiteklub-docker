@@ -16,11 +16,11 @@ All static pages are served from `frame/static` and selected via `frame/index.ph
 
 # This Repo's Contents
 
-* frame: The PHP Code for the landing page and all static pages.
-* nginx-main-conf: nginx config file that is symlinked to `/etc/nginx/sites-enabled`. Home of all forwards from user visible links to ports of services.
-* wordpress: Slightly modified docker image for wordpress (allows to modify path at which the wordpress installation is run).
-* docker-compose.yml: Definitions of all services running on the server.
-* docker-common.env: Helper file for the .yml, containing env var definitions shared by services.
+* `frame`: The PHP Code for the landing page and all static pages.
+* `nginx-main-conf`: nginx config file that is symlinked to `/etc/nginx/sites-enabled`. Home of all forwards from user visible links to ports of services.
+* `wordpress`: Slightly modified docker image for wordpress (allows to modify path at which the wordpress installation is run).
+* `docker-compose.yml`: Definitions of all services running on the server.
+* `docker-common.env`: Helper file for the .yml, containing env var definitions shared by services.
 
 # How To ...
 
@@ -54,20 +54,20 @@ TODO
 
 # Services
 
-[ ] QuoteDB
-[ ] Studix
-[ ] LVDB
-[ ] 120/180
-[ ] Etherpad
-[ ] Sport Reservierungen
-[x] Filmklub Blog (Last Update: Jul 2014)
-[x] Zeitungsklub Blog (neu)
-[x] Verlinkung Connect Klub Blog
-[ ] Jabber
-[x] Geocaching
-[ ] Auth: Basic Auth via HPI Kerberos
-[x] FSR kriegt übersichtsseite, navbar
-[x] Verlinkung Redmine
+- [ ] QuoteDB
+- [ ] Studix
+- [ ] LVDB
+- [ ] 120/180
+- [ ] Etherpad
+- [ ] Sport Reservierungen
+- [x] Filmklub Blog (Last Update: Jul 2014)
+- [x] Zeitungsklub Blog (neu)
+- [x] Verlinkung Connect Klub Blog
+- [ ] Jabber
+- [x] Geocaching
+- [ ] Auth: Basic Auth via HPI Kerberos
+- [x] FSR kriegt übersichtsseite, navbar
+- [x] Verlinkung Redmine
 
 # TODO
 * forbid access to all files in `frame/*/*` except for navbar
