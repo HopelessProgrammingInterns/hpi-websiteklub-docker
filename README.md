@@ -54,6 +54,8 @@ TODO
 
 # When deploying...
 
+* `git config --global url.https://github.com/.insteadOf git@github.com:` as you probably don't have an ssh key on the server (for the submodules)
+* `git clone --recursive https://github.com/HopelessProgrammingInterns/hpi-websiteklub-docker`
 * Absolutely make sure the **passwords in `docker-common.env` are changed** on the server
 * Adjust the path in `nginx-main-conf/default` to point to the location of the `docker-compose.yml` script
 * Setup a nginx that imports the `nginx-main-conf/default` script
