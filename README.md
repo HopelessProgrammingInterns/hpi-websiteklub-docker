@@ -60,7 +60,7 @@ TODO
 
 # Services
 
-- [ ] QuoteDB
+- [x] QuoteDB
 - [ ] Studix
 - [ ] LVDB
 - [x] 120
