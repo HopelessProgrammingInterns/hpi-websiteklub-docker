@@ -2,9 +2,16 @@
   // determine the page upfront and save the output.
   // Allows subpages to modify headers
 
+  function embed($url) {
+    echo "<div class=\"container\"><iframe class=\"page-content\" src=\"$url\"></div>";
+  }
+
   ob_start();
 
   switch ($_SERVER["REQUEST_URI"]) {
+  case "/":
+    include("static/home.php");
+    break;
   case "/geocaching":
     include("static/geocaching.php");
     break;

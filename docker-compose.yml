@@ -29,7 +29,7 @@ services:
       # clubs dropdown. same pattern.
       - CLUB0=Zeitungs-Klub|/klub/zeitung
       - CLUB1=Kochklub|/klub/kochen
-      - CLUB2=A capella|/klub/acapella
+      - CLUB2=A capella|/klub/acappella
       - CLUB3=Filmklub|/klub/film
       - CLUB4=Connect-Klub|http://hpi.de/connect/start.html
     volumes:
@@ -77,7 +77,7 @@ services:
       - WORDPRESS_DB_NAME=wordpress_zeitungsklub
 
 # https://hub.docker.com/_/wordpress/
-  wordpress_acapella:
+  wordpress_acappella:
     build: ./wordpress
     links:
       - maindb:mysql
@@ -88,8 +88,8 @@ services:
       - 8003:80
     env_file: ./docker-common.env
     environment:
-      - WORDPRESS_PATH=/klub/acapella
-      - WORDPRESS_DB_NAME=wordpress_acapella
+      - WORDPRESS_PATH=/klub/acappella
+      - WORDPRESS_DB_NAME=wordpress_acappella
 
 # https://hub.docker.com/r/tvelocity/etherpad-lite/
   etherpad:

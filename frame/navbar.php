@@ -45,8 +45,8 @@ if (isset($_GET["type"]) && $_GET["type"] == "json") {
 }
 ?>
 
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/bootstrap-hpi-theme.css">
+<link rel="stylesheet" href="<?= $domain ?>/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?= $domain ?>/css/bootstrap-hpi-theme.css">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
 	  <div class="navbar-header">
@@ -56,7 +56,7 @@ if (isset($_GET["type"]) && $_GET["type"] == "json") {
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#"><img src="logo.png"></a>
+			<a class="navbar-brand" href="#"><img src="<?= $domain ?>/logo.png"></a>
 	  </div>
 
 	  <div class="collapse navbar-collapse" id="hpi-navbar-collapse">
@@ -83,5 +83,5 @@ if (isset($_GET["type"]) && $_GET["type"] == "json") {
 	  </div>
 	</div><!-- /.container-fluid -->
 </nav>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="<?= $domain ?>/js/jquery.min.js"></script>
+<script src="<?= $domain ?>/js/bootstrap.min.js"></script>
