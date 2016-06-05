@@ -111,6 +111,24 @@ services:
     links:
       - maindb:mysql
 
+  onehundredandtwenty:
+    image: nginx
+    networks:
+      - frontend
+    ports:
+      - 8005:80
+    volumes:
+      - ./onehundredandtwenty:/usr/share/nginx/html
+
+  onehundredandeighty:
+    image: nginx
+    networks:
+      - frontend
+    ports:
+      - 8006:80
+    volumes:
+      - ./onehundredandeighty:/usr/share/nginx/html
+
 #  quote_db:
 #    build: ./quotedb
 #    command: python manage.py runserver 0.0.0.0:8004

@@ -1,1 +1,58 @@
-/etc/nginx/sites-available/default
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server ipv6only=on;
+
+	root /usr/share/nginx/html;
+	index index.html index.htm;
+
+	server_name localhost;
+
+	location /klub/film {
+		proxy_pass http://127.0.0.1:8001;
+	}
+
+	location /klub/zeitung {
+		proxy_pass http://localhost:8002;
+	}
+
+	location /klub/acapella {
+		proxy_pass http://localhost:8003;
+	}
+
+	# having the trailing slash is important, because etherpad uses relative paths
+	location = /etherpad { return 301 /etherpad/; }
+	location ~ ^/etherpad(/?)(.*) {
+		proxy_pass http://127.0.0.1:8004/$2$is_args$args;
+		proxy_redirect off;
+
+		client_max_body_size 20M;
+
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "upgrade";
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+		proxy_set_header X-Forwarded-Proto http;
+
+		proxy_redirect off;
+
+		proxy_buffers 64 4k;
+	}
+
+	location = /embed/120 { return 301 /embed/120/; }
+	location ~ ^/embed/120(/?)(.*) {
+		proxy_pass http://127.0.0.1:8005/$2$is_args$args;
+	}
+
+	location = /embed/180 { return 301 /embed/180/; }
+	location ~ ^/embed/180(/?)(.*) {
+		proxy_pass http://127.0.0.1:8006/$2$is_args$args;
+	}
+
+	location / {
+		proxy_pass http://127.0.0.1:8000;
+	}
+}
+

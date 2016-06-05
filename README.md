@@ -44,6 +44,10 @@ All static pages are served from `frame/static` and selected via `frame/index.ph
 1. Create a php/html page in `frame/static/`.
 2. Add another `case '/your-path'` in `frame/index.php` that includes your file.
 
+### Static Resources
+
+All static resources can be placed in the `frame/static-files` folder, from which they wil be directly accessible.
+
 ### Create a database backup
 
 TODO
@@ -57,7 +61,8 @@ TODO
 - [ ] QuoteDB
 - [ ] Studix
 - [ ] LVDB
-- [ ] 120/180
+- [x] 120
+- [x] 180
 - [ ] Etherpad
 - [ ] Sport Reservierungen
 - [x] Filmklub Blog (Last Update: Jul 2014)

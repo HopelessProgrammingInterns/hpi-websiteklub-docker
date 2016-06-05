@@ -2,8 +2,13 @@
   // determine the page upfront and save the output.
   // Allows subpages to modify headers
 
+  $domain = $_ENV["FRAME_DOMAIN"];
+  $extraBodyClass = "";
+
   function embed($url) {
-    echo "<div class=\"container\"><iframe class=\"page-content\" src=\"$url\"></div>";
+    global $extraBodyClass;
+    $extraBodyClass = "navbar-no-spacing";
+    echo "<iframe class=\"page-content\" src=\"$url\">";
   }
 
   ob_start();
@@ -14,6 +19,14 @@
     break;
   case "/geocaching":
     include("static/geocaching.php");
+    break;
+  case "/120/":
+  case "120":
+    embed("$domain/embed/120");
+    break;
+  case "/180/":
+  case "/180":
+    embed("$domain/embed/180");
     break;
   default:
     include("static/404.php");
@@ -31,7 +44,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>HPI Student</title>
   </head>
-  <body>
+  <body class="<?= $extraBodyClass ?>">
     <?php include("navbar.php"); ?>
     <?= $content ?>
   </body>

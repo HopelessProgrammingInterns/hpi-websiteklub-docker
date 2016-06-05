@@ -1,9 +1,14 @@
 
-html body {
+html, body {
 	font-family: "neo-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	/*font-family: 'Tittilium Regular', 'Helvetica', sans-serif;*/
 	background-color: #eeefef;
 	color: #555;
+	height: 100%;
+}
+
+body.navbar-no-spacing .navbar-default {
+	margin-bottom: 0;
 }
 
 .navbar-default {
@@ -62,5 +67,11 @@ html body {
 .btn-primary:active,.btn-primary.active {
 	background-color: #851c3c;
 	border-color: #611e33;
+}
+
+.page-content {
+	width: 100%;
+	height: calc(100% - 75px); /* - navbar_height */
+	border: none;
 }
 

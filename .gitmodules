@@ -1,0 +1,7 @@
+[submodule "onehundredandtwenty"]
+	path = onehundredandtwenty
+	url = git@github.com:knub/onehundredandtwenty.git
+
+[submodule "onehundredandeighty"]
+	path = onehundredandeighty
+	url = git@github.com:knub/onehundredandeighty.git
