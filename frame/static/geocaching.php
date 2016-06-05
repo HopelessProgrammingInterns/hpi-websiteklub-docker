@@ -18,7 +18,7 @@ Die Caches befinden sich alle auf dem 52. Breitengrad und dem 13. Längengrad. U
 3. Palindrom: 30
 <br>4. Wochentage: 9</br>
 5. Sudoku: 15
-<br>Die Datei für Rätsel 5 findest du hier: <a href="/geocaching/sudoku.txt">sudoku.txt</a></br>
+<br>Die Datei für Rätsel 5 findest du hier: <a href="/static-files/geocaching/sudoku.txt">sudoku.txt</a></br>
 
 <h2>Koordinaten des 1. Caches</h2>
 <dl class='inline'>

@@ -129,13 +129,23 @@ services:
     volumes:
       - ./onehundredandeighty:/usr/share/nginx/html
 
-#  quote_db:
-#    build: ./quotedb
-#    command: python manage.py runserver 0.0.0.0:8004
-#    volumes:
-#      - .:/code
-#    ports:
-#      - "8004:8004"
-#    links:
-#      - maindb:mysql
+  quotedb:
+    build: ./hpi-quotedb
+    env_file: ./docker-common.env
+    environment:
+      - QUOTEDB_DB_NAME=hpiquotedb
+      - QUOTEDB_DB_HOST=maindb
+      - QUOTEDB_DB_USER=root
+      - QUOTEDB_SERVER_BASE_PATH=quotedb/
+      - DJANGO_SETTINGS_MODULE=hpi_quotedb.settings.production
+    networks:
+      - frontend
+      - backend
+    ports:
+      - 8007:8000
+    volumes:
+      - ./hpi-quotedb:/usr/src/app
+      - ./hpi-quotedb-static:/usr/src/app/hpi_quotedb/static
+    links:
+      - maindb:mysql
 

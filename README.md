@@ -55,6 +55,8 @@ TODO
 # When deploying...
 
 * Absolutely make sure the **passwords in `docker-common.env` are changed** on the server
+* Adjust the path in `nginx-main-conf/default` to point to the location of the `docker-compose.yml` script
+* Setup a nginx that imports the `nginx-main-conf/default` script
 
 # Services
 
