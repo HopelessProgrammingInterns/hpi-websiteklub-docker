@@ -1,0 +1,75 @@
+LoadModule auth_kerb_module /usr/lib/apache2/modules/mod_auth_kerb.so
+LoadModule auth_form_module /usr/lib/apache2/modules/mod_auth_form.so
+
+<VirtualHost *:80>
+
+	ServerName localhost
+
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride None
+		Order Deny,Allow
+		Deny from All
+	</Directory>
+
+	#<LocationMatch /(login_form|css|fonts|js|logo.png|logo.png)>
+	#	allow from all 
+	#	satisfy any
+	#</LocationMatch>
+
+	#ProxyPass /login_form http://127.0.0.1:8000/login
+	#ProxyPassReverse /login_form http://127.0.0.1:8000/login
+
+	#<Location />
+	#	AuthType Kerberos
+	#	AuthName "HPI Login"
+	#	KrbMethodNegotiate On
+	#	KrbAuthRealm HPI
+	#	KrbMethodK5Passwd Off
+	#	Krb5Keytab /opt/lampp/apache2/http.keytab
+	#	KrbSaveCredentials Off
+	#	KrbVerifyKDC Off
+	#	KrbServiceName HTTP
+	#	RequestHeader set Remote-User %{REMOTE_USER}s
+	#	Require valid-user
+	#	ErrorDocument 401 /login_form
+	#</Location>
+
+	Redirect permanent /klub/film /klub/film/
+	ProxyPass /klub/film/ http://127.0.0.1:8001
+	ProxyPassReverse /klub/film/ http://127.0.0.1:8001
+
+	Redirect permanent /klub/zeitung /klub/zeitung/
+	ProxyPass /klub/zeitung/ http://127.0.0.1:8002/klub/zeitung/
+	ProxyPassReverse /klub/zeitung/ http://127.0.0.1:8002/klub/zeitung/
+
+	Redirect permanent /klub/acapella /klub/acapella/
+	ProxyPass /klub/acapella/ http://127.0.0.1:8003
+	ProxyPassReverse /klub/acapella/ http://127.0.0.1:8003
+
+	ProxyPass /embed/etherpad/ http://127.0.0.1:8004/
+	ProxyPassReverse /embed/etherpad/ http://127.0.0.1:8004/
+
+	ProxyPass /embed/120/ http://127.0.0.1:8005/
+	ProxyPassReverse /embed/120/ http://127.0.0.1:8005/
+
+	ProxyPass /embed/180/ http://127.0.0.1:8006/
+	ProxyPassReverse /embed/180/ http://127.0.0.1:8006/
+
+	# adjust this path to point to the base of the installation
+	Alias /quotedb/static /home/tom/Code/js/website-klub-services/hpi-quotedb-static
+	<Directory /home/tom/Code/js/website-klub-services/hpi-quotedb-static>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		Allow from all
+	</Directory>
+	ProxyPass /quotedb/static/ !
+	ProxyPass /quotedb/ http://127.0.0.1:8007/quotedb/
+	ProxyPassReverse /quotedb/ http://127.0.0.1:8007/quotedb/
+
+	ProxyPass / http://127.0.0.1:8000/
+	ProxyPassReverse / http://127.0.0.1:8000/
+
+</VirtualHost>
+

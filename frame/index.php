@@ -17,16 +17,23 @@
   case "/":
     include("static/home.php");
     break;
+  case "/login":
+    include("static/login.php");
+    break;
   case "/geocaching":
     include("static/geocaching.php");
     break;
   case "/120/":
-  case "120":
-    embed("$domain/embed/120");
+  case "/120":
+    embed("$domain/embed/120/");
     break;
   case "/180/":
   case "/180":
-    embed("$domain/embed/180");
+    embed("$domain/embed/180/");
+    break;
+  case "/etherpad/":
+  case "/etherpad":
+    embed("$domain/embed/etherpad/");
     break;
   default:
     include("static/404.php");
