@@ -33,7 +33,7 @@
     break;
   case "/etherpad/":
   case "/etherpad":
-    embed("$domain/embed/etherpad/");
+    include("static/etherpad.php");
     break;
   default:
     include("static/404.php");

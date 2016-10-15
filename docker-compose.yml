@@ -13,6 +13,8 @@ services:
   frame:
     build: ./frame
     env_file: ./docker-common.env
+    networks:
+      - frontend
     environment:
       # all of those will appear in the toplevel navigation in the order of
       # their number suffix. pattern is label|URL
