@@ -1,0 +1,237 @@
+
+<div class="btn-group pull-right">
+  <button ng-click="prevWeek()" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span></button>
+  <button ng-click="nextWeek()" class="btn btn-default"><span class="glyphicon glyphicon-chevron-right"></span></button>
+</div>
+<h1 id="cur-date"></h1>
+<table class="days">
+  <tr>
+    <td>SONNTAG</td>
+    <td>MONTAG</td>
+    <td>DIENSTAG</td>
+    <td>MITTWOCH</td>
+    <td>DONNERSTAG</td>
+    <td>FREITAG</td>
+    <td>SAMSTAG</td>
+  </tr>
+</table>
+<div class="calendar-scroll">
+  <table class="calendar">
+    <tr>
+      <td ng-click="addEvent(0, 0)">0:00</td>
+      <td ng-click="addEvent(0, 1)">0:00</td>
+      <td ng-click="addEvent(0, 2)">0:00</td>
+      <td ng-click="addEvent(0, 3)">0:00</td>
+      <td ng-click="addEvent(0, 4)">0:00</td>
+      <td ng-click="addEvent(0, 5)">0:00</td>
+      <td ng-click="addEvent(0, 6)">0:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(1, 0)">1:00</td>
+      <td ng-click="addEvent(1, 1)">1:00</td>
+      <td ng-click="addEvent(1, 2)">1:00</td>
+      <td ng-click="addEvent(1, 3)">1:00</td>
+      <td ng-click="addEvent(1, 4)">1:00</td>
+      <td ng-click="addEvent(1, 5)">1:00</td>
+      <td ng-click="addEvent(1, 6)">1:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(2, 0)">2:00</td>
+      <td ng-click="addEvent(2, 1)">2:00</td>
+      <td ng-click="addEvent(2, 2)">2:00</td>
+      <td ng-click="addEvent(2, 3)">2:00</td>
+      <td ng-click="addEvent(2, 4)">2:00</td>
+      <td ng-click="addEvent(2, 5)">2:00</td>
+      <td ng-click="addEvent(2, 6)">2:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(3, 0)">3:00</td>
+      <td ng-click="addEvent(3, 1)">3:00</td>
+      <td ng-click="addEvent(3, 2)">3:00</td>
+      <td ng-click="addEvent(3, 3)">3:00</td>
+      <td ng-click="addEvent(3, 4)">3:00</td>
+      <td ng-click="addEvent(3, 5)">3:00</td>
+      <td ng-click="addEvent(3, 6)">3:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(4, 0)">4:00</td>
+      <td ng-click="addEvent(4, 1)">4:00</td>
+      <td ng-click="addEvent(4, 2)">4:00</td>
+      <td ng-click="addEvent(4, 3)">4:00</td>
+      <td ng-click="addEvent(4, 4)">4:00</td>
+      <td ng-click="addEvent(4, 5)">4:00</td>
+      <td ng-click="addEvent(4, 6)">4:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(5, 0)">5:00</td>
+      <td ng-click="addEvent(5, 1)">5:00</td>
+      <td ng-click="addEvent(5, 2)">5:00</td>
+      <td ng-click="addEvent(5, 3)">5:00</td>
+      <td ng-click="addEvent(5, 4)">5:00</td>
+      <td ng-click="addEvent(5, 5)">5:00</td>
+      <td ng-click="addEvent(5, 6)">5:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(6, 0)">6:00</td>
+      <td ng-click="addEvent(6, 1)">6:00</td>
+      <td ng-click="addEvent(6, 2)">6:00</td>
+      <td ng-click="addEvent(6, 3)">6:00</td>
+      <td ng-click="addEvent(6, 4)">6:00</td>
+      <td ng-click="addEvent(6, 5)">6:00</td>
+      <td ng-click="addEvent(6, 6)">6:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(7, 0)">7:00</td>
+      <td ng-click="addEvent(7, 1)">7:00</td>
+      <td ng-click="addEvent(7, 2)">7:00</td>
+      <td ng-click="addEvent(7, 3)">7:00</td>
+      <td ng-click="addEvent(7, 4)">7:00</td>
+      <td ng-click="addEvent(7, 5)">7:00</td>
+      <td ng-click="addEvent(7, 6)">7:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(8, 0)">8:00</td>
+      <td ng-click="addEvent(8, 1)">8:00</td>
+      <td ng-click="addEvent(8, 2)">8:00</td>
+      <td ng-click="addEvent(8, 3)">8:00</td>
+      <td ng-click="addEvent(8, 4)">8:00</td>
+      <td ng-click="addEvent(8, 5)">8:00</td>
+      <td ng-click="addEvent(8, 6)">8:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(9, 0)">9:00</td>
+      <td ng-click="addEvent(9, 1)">9:00</td>
+      <td ng-click="addEvent(9, 2)">9:00</td>
+      <td ng-click="addEvent(9, 3)">9:00</td>
+      <td ng-click="addEvent(9, 4)">9:00</td>
+      <td ng-click="addEvent(9, 5)">9:00</td>
+      <td ng-click="addEvent(9, 6)">9:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(10, 0)">10:00</td>
+      <td ng-click="addEvent(10, 1)">10:00</td>
+      <td ng-click="addEvent(10, 2)">10:00</td>
+      <td ng-click="addEvent(10, 3)">10:00</td>
+      <td ng-click="addEvent(10, 4)">10:00</td>
+      <td ng-click="addEvent(10, 5)">10:00</td>
+      <td ng-click="addEvent(10, 6)">10:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(11, 0)">11:00</td>
+      <td ng-click="addEvent(11, 1)">11:00</td>
+      <td ng-click="addEvent(11, 2)">11:00</td>
+      <td ng-click="addEvent(11, 3)">11:00</td>
+      <td ng-click="addEvent(11, 4)">11:00</td>
+      <td ng-click="addEvent(11, 5)">11:00</td>
+      <td ng-click="addEvent(11, 6)">11:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(12, 0)">12:00</td>
+      <td ng-click="addEvent(12, 1)">12:00</td>
+      <td ng-click="addEvent(12, 2)">12:00</td>
+      <td ng-click="addEvent(12, 3)">12:00</td>
+      <td ng-click="addEvent(12, 4)">12:00</td>
+      <td ng-click="addEvent(12, 5)">12:00</td>
+      <td ng-click="addEvent(12, 6)">12:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(13, 0)">13:00</td>
+      <td ng-click="addEvent(13, 1)">13:00</td>
+      <td ng-click="addEvent(13, 2)">13:00</td>
+      <td ng-click="addEvent(13, 3)">13:00</td>
+      <td ng-click="addEvent(13, 4)">13:00</td>
+      <td ng-click="addEvent(13, 5)">13:00</td>
+      <td ng-click="addEvent(13, 6)">13:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(14, 0)">14:00</td>
+      <td ng-click="addEvent(14, 1)">14:00</td>
+      <td ng-click="addEvent(14, 2)">14:00</td>
+      <td ng-click="addEvent(14, 3)">14:00</td>
+      <td ng-click="addEvent(14, 4)">14:00</td>
+      <td ng-click="addEvent(14, 5)">14:00</td>
+      <td ng-click="addEvent(14, 6)">14:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(15, 0)">15:00</td>
+      <td ng-click="addEvent(15, 1)">15:00</td>
+      <td ng-click="addEvent(15, 2)">15:00</td>
+      <td ng-click="addEvent(15, 3)">15:00</td>
+      <td ng-click="addEvent(15, 4)">15:00</td>
+      <td ng-click="addEvent(15, 5)">15:00</td>
+      <td ng-click="addEvent(15, 6)">15:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(16, 0)">16:00</td>
+      <td ng-click="addEvent(16, 1)">16:00</td>
+      <td ng-click="addEvent(16, 2)">16:00</td>
+      <td ng-click="addEvent(16, 3)">16:00</td>
+      <td ng-click="addEvent(16, 4)">16:00</td>
+      <td ng-click="addEvent(16, 5)">16:00</td>
+      <td ng-click="addEvent(16, 6)">16:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(17, 0)">17:00</td>
+      <td ng-click="addEvent(17, 1)">17:00</td>
+      <td ng-click="addEvent(17, 2)">17:00</td>
+      <td ng-click="addEvent(17, 3)">17:00</td>
+      <td ng-click="addEvent(17, 4)">17:00</td>
+      <td ng-click="addEvent(17, 5)">17:00</td>
+      <td ng-click="addEvent(17, 6)">17:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(18, 0)">18:00</td>
+      <td ng-click="addEvent(18, 1)">18:00</td>
+      <td ng-click="addEvent(18, 2)">18:00</td>
+      <td ng-click="addEvent(18, 3)">18:00</td>
+      <td ng-click="addEvent(18, 4)">18:00</td>
+      <td ng-click="addEvent(18, 5)">18:00</td>
+      <td ng-click="addEvent(18, 6)">18:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(19, 0)">19:00</td>
+      <td ng-click="addEvent(19, 1)">19:00</td>
+      <td ng-click="addEvent(19, 2)">19:00</td>
+      <td ng-click="addEvent(19, 3)">19:00</td>
+      <td ng-click="addEvent(19, 4)">19:00</td>
+      <td ng-click="addEvent(19, 5)">19:00</td>
+      <td ng-click="addEvent(19, 6)">19:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(20, 0)">20:00</td>
+      <td ng-click="addEvent(20, 1)">20:00</td>
+      <td ng-click="addEvent(20, 2)">20:00</td>
+      <td ng-click="addEvent(20, 3)">20:00</td>
+      <td ng-click="addEvent(20, 4)">20:00</td>
+      <td ng-click="addEvent(20, 5)">20:00</td>
+      <td ng-click="addEvent(20, 6)">20:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(21, 0)">21:00</td>
+      <td ng-click="addEvent(21, 1)">21:00</td>
+      <td ng-click="addEvent(21, 2)">21:00</td>
+      <td ng-click="addEvent(21, 3)">21:00</td>
+      <td ng-click="addEvent(21, 4)">21:00</td>
+      <td ng-click="addEvent(21, 5)">21:00</td>
+      <td ng-click="addEvent(21, 6)">21:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(22, 0)">22:00</td>
+      <td ng-click="addEvent(22, 1)">22:00</td>
+      <td ng-click="addEvent(22, 2)">22:00</td>
+      <td ng-click="addEvent(22, 3)">22:00</td>
+      <td ng-click="addEvent(22, 4)">22:00</td>
+      <td ng-click="addEvent(22, 5)">22:00</td>
+      <td ng-click="addEvent(22, 6)">22:00</td>
+    </tr>
+    <tr>
+      <td ng-click="addEvent(23, 0)">23:00</td>
+      <td ng-click="addEvent(23, 1)">23:00</td>
+      <td ng-click="addEvent(23, 2)">23:00</td>
+      <td ng-click="addEvent(23, 3)">23:00</td>
+      <td ng-click="addEvent(23, 4)">23:00</td>
+      <td ng-click="addEvent(23, 5)">23:00</td>
+      <td ng-click="addEvent(23, 6)">23:00</td>
+    </tr>
+  </table>
+</div>

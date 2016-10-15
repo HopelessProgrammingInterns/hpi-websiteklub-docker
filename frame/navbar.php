@@ -45,6 +45,7 @@ if (isset($_GET["type"]) && $_GET["type"] == "json") {
 }
 ?>
 
+
 <link rel="stylesheet" href="<?= $domain ?>/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?= $domain ?>/css/bootstrap-hpi-theme.css">
 <nav class="navbar navbar-default">
@@ -77,9 +78,15 @@ if (isset($_GET["type"]) && $_GET["type"] == "json") {
 					</ul>
 				</li>
 			</ul>
+			<?php if (isset($_SERVER['HTTP_REMOTE_USER']) &&
+								!empty($_SERVER['HTTP_REMOTE_USER']) &&
+								$_SERVER['HTTP_REMOTE_USER'] != '(null)') {?>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Logout</a></li>
+				<li>
+					<a href="#">Logout <?= $_SERVER['HTTP_REMOTE_USER'] ?></a>
+				</li>
 			</ul>
+			<?php } ?>
 	  </div>
 	</div><!-- /.container-fluid -->
 </nav>

@@ -1,5 +1,4 @@
 LoadModule auth_kerb_module /usr/lib/apache2/modules/mod_auth_kerb.so
-LoadModule auth_form_module /usr/lib/apache2/modules/mod_auth_form.so
 
 <VirtualHost *:80>
 
@@ -12,28 +11,31 @@ LoadModule auth_form_module /usr/lib/apache2/modules/mod_auth_form.so
 		Deny from All
 	</Directory>
 
-	#<LocationMatch /(login_form|css|fonts|js|logo.png|logo.png)>
-	#	allow from all 
-	#	satisfy any
-	#</LocationMatch>
+	<LocationMatch /(login_form|css|fonts|js|logo.png|logo.png|api)>
+		Allow from all 
+		Satisfy any
+	</LocationMatch>
 
-	#ProxyPass /login_form http://127.0.0.1:8000/login
-	#ProxyPassReverse /login_form http://127.0.0.1:8000/login
+	ProxyPass /api/1/navbar http://127.0.0.1:8000/navbar.php
+	ProxyPassReverse /api/1/navbar http://127.0.0.1:8000/navbar.php
 
-	#<Location />
-	#	AuthType Kerberos
-	#	AuthName "HPI Login"
-	#	KrbMethodNegotiate On
-	#	KrbAuthRealm HPI
-	#	KrbMethodK5Passwd Off
-	#	Krb5Keytab /opt/lampp/apache2/http.keytab
-	#	KrbSaveCredentials Off
-	#	KrbVerifyKDC Off
-	#	KrbServiceName HTTP
-	#	RequestHeader set Remote-User %{REMOTE_USER}s
-	#	Require valid-user
-	#	ErrorDocument 401 /login_form
-	#</Location>
+	ProxyPass /login_form http://127.0.0.1:8000/login
+	ProxyPassReverse /login_form http://127.0.0.1:8000/login
+
+	<Location />
+		AuthType Kerberos
+		AuthName "HPI Login"
+		KrbMethodNegotiate On
+		KrbAuthRealm HPI
+		KrbMethodK5Passwd On
+		Krb5Keytab /opt/lampp/apache2/http.keytab
+		KrbSaveCredentials On
+		KrbVerifyKDC Off
+		KrbServiceName HTTP
+		RequestHeader set Remote-User %{REMOTE_USER}s
+		Require valid-user
+		ErrorDocument 401 /login_form
+	</Location>
 
 	Redirect permanent /klub/film /klub/film/
 	ProxyPass /klub/film/ http://127.0.0.1:8001

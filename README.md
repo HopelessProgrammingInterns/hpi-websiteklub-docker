@@ -64,7 +64,6 @@ TODO
 
 - [x] QuoteDB
 - [ ] Studix
-- [ ] LVDB
 - [x] 120
 - [x] 180
 - [ ] Etherpad
@@ -72,7 +71,6 @@ TODO
 - [x] Filmklub Blog (Last Update: Jul 2014)
 - [x] Zeitungsklub Blog (neu)
 - [x] Verlinkung Connect Klub Blog
-- [ ] Jabber
 - [x] Geocaching
 - [ ] Auth: Basic Auth via HPI Kerberos
 - [x] FSR kriegt übersichtsseite, navbar

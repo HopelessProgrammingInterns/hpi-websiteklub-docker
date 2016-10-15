@@ -1,0 +1,51 @@
+hpi-calendar {
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+hpi-calendar .event {
+  cursor: pointer;
+  position: absolute;
+  padding: 0 6px;
+  font-weight: bold;
+  border-radius: 2px;
+  color: white;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+hpi-calendar table {
+  table-layout: fixed;
+}
+hpi-calendar .days {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  background-color: white;
+}
+hpi-calendar .days td {
+  padding: 4px 8px;
+  font-weight: bold;
+  border: 1px solid #999;
+  font-size: 12px;
+}
+hpi-calendar .calendar-scroll {
+  position: relative;
+  height: 300px;
+  overflow: auto;
+}
+hpi-calendar .calendar {
+  width: 100%;
+  border: 1px solid #999;
+  border-top: none;
+}
+hpi-calendar .calendar tr {
+  border-bottom: 1px solid #ccc;
+}
+hpi-calendar .calendar tr:last-child {
+  border-bottom: 1px solid #999;
+}
+hpi-calendar .calendar td {
+  font-size: 10px;
+  padding: 0 8px;
+  height: 32px;
+  border-left: 1px solid #999;
+}
