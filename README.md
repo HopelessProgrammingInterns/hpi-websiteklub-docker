@@ -48,9 +48,15 @@ All static pages are served from `frame/static` and selected via `frame/index.ph
 
 All static resources can be placed in the `frame/static-files` folder, from which they wil be directly accessible.
 
-### Create a database backup
+### Create a backup
 
-TODO
+Container data is stored in named docker volumes. You can backup that using the `backup.sh`-script:
+
+```
+sudo ./backup.sh path-to-backups
+```
+
+The script backups the volumes in subdirectories into the specified backup directory.
 
 # When deploying...
 
