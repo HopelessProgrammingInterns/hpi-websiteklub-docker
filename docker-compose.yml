@@ -10,6 +10,14 @@ volumes:
 
 services:
 
+  portal:
+    build: ./portal
+    env_file: ./docker-common.env
+    networks:
+      - frontend
+    ports:
+      - 80:80
+
   frame:
     build: ./frame
     env_file: ./docker-common.env
