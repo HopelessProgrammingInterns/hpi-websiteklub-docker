@@ -35,7 +35,7 @@ services:
       - LINK4=Redmine|https://student.hpi.uni-potsdam.de/redmine/
       - LINK5=Zitate|/quotedb/
       - LINK6=Geocaching|/geocaching
-      - LINK7=FSR|https://myhpi.de/fsr/
+      - LINK7=FSR|https://myhpi.de/
 
       # similar to the links, except those go into the 
       # clubs dropdown. same pattern.
